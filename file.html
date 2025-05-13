@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Devkar | Civil Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --text: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(var(--secondary) 2px, transparent 2px),
+                radial-gradient(var(--secondary) 2px, transparent 2px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .header {
+            position: relative;
+            padding: 60px 40px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-img {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-img img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        
+        .profile-info h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .main {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--accent);
+        }
+        
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 4px;
+        }
+        
+        .experience-item {
+            position: relative;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .experience-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .experience-item h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .experience-item p {
+            margin-top: 10px;
+        }
+        
+        .footer {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .contact-details h4 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-details a:hover {
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tags {
+                justify-content: center;
+            }
+            
+            .header, .main, .footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="container animate__animated animate__fadeIn">
+            <div class="bg-pattern"></div>
+            
+            <header class="header">
+                <div class="profile">
+                    <div class="profile-img animate__animated animate__zoomIn">
+                        <img src="photo.png" alt="Om Devkar">
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="animate__animated animate__fadeInDown">Om Devkar</h1>
+                        <h2 class="animate__animated animate__fadeInDown animate__delay-1s">Civil Engineer</h2>
+                        <div class="tags animate__animated animate__fadeIn animate__delay-2s">
+                            <span class="tag">Structural Design</span>
+                            <span class="tag">Construction Management</span>
+                            <span class="tag">Material Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="main">
+                <section class="section about">
+                    <h3 class="section-title"><i class="fas fa-user"></i> About Me</h3>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s">
+                        Diploma holder in Civil Engineering (2024) from Y.B. Patil Polytechnic, Pune. 
+                        I am passionate about innovative construction techniques and sustainable building practices.
+                        With practical experience on G+4 and G+1 residential buildings, I bring hands-on knowledge
+                        to every project I undertake.
+                    </p>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title"><i class="fas fa-tools"></i> Skills</h3>
+                    <div class="skills">
+                        <div class="skill animate__animated animate__fadeInUp">
+                            <h4>Construction Documentation</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill animate__animated animate__fadeInUp animate__delay-1s">
+                            <h4>Mix Design (M60 Grade)</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill animate__animated animate__fadeInUp animate__delay-2s">
+                            <h4>UHPC with GGBS</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill animate__animated animate__fadeInUp animate__delay-3s">
+                            <h4>Plastering & Tiling</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill animate__animated animate__fadeInUp animate__delay-4s">
+                            <h4>Plumbing</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill animate__animated animate__fadeInUp animate__delay-5s">
+                            <h4>Waterproofing</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="experience-item animate__animated animate__fadeInLeft">
+                        <h4>Tirupati Empire</h4>
+                        <h5>Internship</h5>
+                        <p>
+                            Handled various aspects of construction including plastering, tiling, plumbing, and waterproofing works.
+                            Gained practical knowledge in site management and quality control procedures.
+                        </p>
+                    </div>
+                    <div class="experience-item animate__animated animate__fadeInLeft animate__delay-1s">
+                        <h4>Residential Projects</h4>
+                        <h5>G+4 and G+1 Buildings</h5>
+                        <p>
+                            Participated in construction of residential buildings, focusing on structural elements
+                            and finishing works. Applied theoretical knowledge in real-world construction scenarios.
+                        </p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="experience-item animate__animated animate__fadeInRight">
+                        <h4>Diploma in Civil Engineering</h4>
+                        <h5>Y.B. Patil Polytechnic, Pune (2024)</h5>
+                        <p>
+                            Specialized in structural design and construction management.
+                            Conducted research on UHPC using GGBS and Microfine materials.
+                        </p>
+                    </div>
+                </section>
+            </main>
+            
+            <footer class="footer">
+                <div class="contact-info">
+                    <div class="contact-item animate__animated animate__fadeIn">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Pune, Maharashtra, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item animate__animated animate__fadeIn animate__delay-1s">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:omdevkar@hotmail.com">omdevkar@hotmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+918956668463">+91-8956668463</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/om_devkar__" target="_blank" class="social-link animate__animated animate__bounceIn animate__delay-3s">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link animate__animated animate__bounceIn animate__delay-4s">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link animate__animated animate__bounceIn animate__delay-5s">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+                
+                <div class="copyright animate__animated animate__fadeIn animate__delay-6s">
+                    &copy; 2025 Om Devkar. All rights reserved.
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
